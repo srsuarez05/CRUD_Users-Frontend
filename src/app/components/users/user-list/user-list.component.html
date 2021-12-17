@@ -1,0 +1,21 @@
+<table class="table table-sm">
+    <tr>
+        <td><strong>Cédula</strong></td>
+        <td><strong>Nombre</strong></td>
+        <td><strong>Fecha Nacimiento</strong></td>
+        <td><strong>Teléfono</strong></td>
+        <td colspan="2"><strong>Acciones</strong></td>
+      </tr>
+    <tr *ngFor="let user of userService.list">
+        <td>{{ user.cedula }}</td>
+        <td>{{ user.nombre }}</td>
+        <td>{{ user.fechaNac | date: 'mediumDate' }}</td>
+        <td>{{ user.telefono }}</td>
+        <td>
+            <i class="far fa-edit fa-lg text-info" (click)="editar(user)" style="cursor: pointer;"></i>
+        </td>
+        <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="eliminarUsuario(user.id)" style="cursor: pointer;"></i>
+        </td>
+    </tr>
+</table>

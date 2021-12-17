@@ -1,0 +1,56 @@
+<form [formGroup]="form" (ngSubmit)="guardarUsuario()">
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-id-card" [class.green-icon]="this.form.get('cedula').valid" [class.red-icon]="this.form.get('cedula').invalid && this.form.get('cedula').touched"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" formControlName="cedula" placeholder="Cédula" maxlength="10">
+            <!--<input type="number" class="form-control" formControlName="cedula" placeholder="Cedula">-->
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <div class="input-group-text bg-white">
+                    <i class="fas fa-user-circle" [class.green-icon]="this.form.get('nombre').valid" [class.red-icon]="this.form.get('nombre').invalid && this.form.get('nombre').touched"></i>
+                </div>
+            </div>
+            <input type="text" class="form-control" formControlName="nombre" placeholder="Nombre">
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-md-7">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="far fa-calendar-alt" [class.green-icon]="this.form.get('fechaNac').valid" [class.red-icon]="this.form.get('fechaNac').invalid && this.form.get('fechaNac').touched"></i>
+                        </div>
+                    </div>
+                    <input class="form-control"  type="text" formControlName="fechaNac" placeholder="Fecha Nacimiento" onfocus="(this.type='date')" onblur="(this.type='text')">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group col-md-5">
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text bg-white">
+                            <i class="fas fa-phone-square-alt" [class.green-icon]="this.form.get('telefono').valid" [class.red-icon]="this.form.get('telefono').invalid && this.form.get('telefono').touched"></i>
+                        </div>
+                    </div>
+                    <input type="text" class="form-control" formControlName="telefono" placeholder="Teléfono" maxlength="10">
+                    <!--<input type="number" class="form-control" formControlName="telefono" placeholder="Telefono" onKeyPress="if(this.value.length==10) return false;">-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-success btn-lg btn-block" [disabled]="form.invalid" type="submit"><i class="fas fa-database"></i> Aceptar</button>
+    </div>
+</form>
+
